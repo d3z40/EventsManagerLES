@@ -7,11 +7,11 @@ import java.sql.SQLException;
 public class Conexao {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost/mysql";
+		String url = "jdbc:mysql://localhost/LES";
 		String user = "root";
 		String password = "RafaLena1903";
-		Class.forName( driver );
-		Connection conn = DriverManager.getConnection( url, user, password);
+		Class.forName(driver);
+		Connection conn = DriverManager.getConnection(url, user, password);
 		
 		return conn;
 	}

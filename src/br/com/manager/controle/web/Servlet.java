@@ -44,6 +44,7 @@ public class Servlet extends HttpServlet {
 		commands.put("CONSULTAR", new ConsultarCommand());
 		commands.put("VISUALIZAR", new VisualizarCommand());
 		commands.put("ALTERAR", new AlterarCommand());
+		//commands.put("LOGAR", new LogarCommand());
 		
 		/**
 		 * Utilizando o ViewHelper para tratar especificações de qualquer tela e
@@ -51,12 +52,12 @@ public class Servlet extends HttpServlet {
 		 * garantimos que esta servelt atenderá qualquer entidade
 		 */
 		vhs = new HashMap<String, IViewHelper>();
-
+		
 		/**
 		 * A chave do mapa é o mapeamento da servlet para cada form que está configurado
 		 * no web.xml e sendo utilizada no action do html
 		 */
-		vhs.put("/EventsManager/SalvarUsuario", new UsuarioViewHelper());
+		vhs.put("/EventsManagerLES/SalvarUsuario", new UsuarioViewHelper());
 	}
 
 	/*

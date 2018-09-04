@@ -5,14 +5,13 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
-import br.com.manager.dominio.Endereco;
 import br.com.manager.dominio.EntidadeDominio;
 import br.com.manager.dominio.Usuario;
 
 public class UsuarioDAO extends AbstractJdbcDAO {
 
 	public UsuarioDAO() {
-		super("tb_usuario", "id_usu");
+		super("tb_usuario", "id");
 	}
 
 	@Override
@@ -20,24 +19,23 @@ public class UsuarioDAO extends AbstractJdbcDAO {
 		openConnection();
 		PreparedStatement pst = null;
 		Usuario usuario = (Usuario) entidade;
-		Endereco end = usuario.getEndereco();
 		
 		try {
 			connection.setAutoCommit(false);
-			UsuarioDAO usuDAO = new UsuarioDAO();
-			usuDAO.connection = connection;
-			usuDAO.ctrlTransaction = false;
-			usuDAO.salvar(end);
-
+			
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO tb_usuario(rzsocial, cnpj, end_id, ");
-			sql.append("dt_cadastro) VALUES (?,?,?,?)");
+			sql.append("INSERT INTO tb_usuario (nome, apelido, email, senha, cpf, dtCadastro) ");
+			sql.append("VALUES (?,?,?,?,?,?)");
 
 			pst = connection.prepareStatement(sql.toString());
 			pst.setString(1, usuario.getNome());
-			pst.setInt(3, end.getId());
+			pst.setString(2, usuario.getApelido());
+			pst.setString(3, usuario.getEmail());
+			pst.setString(4, usuario.getSenha());
+			pst.setString(5, usuario.getCpf());
 			Timestamp time = new Timestamp(usuario.getDtCadastro().getTime());
-			pst.setTimestamp(4, time);
+			pst.setTimestamp(6, time);
+			
 			pst.executeUpdate();
 			connection.commit();
 		} catch (SQLException e) {

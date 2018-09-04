@@ -14,7 +14,7 @@ import br.com.manager.dominio.Usuario;
 public class UsuarioViewHelper implements IViewHelper {
 
 	/** 
-	 * TODO Descrição do Método
+	 * Descrição do Método
 	 * @param request
 	 * @param response
 	 * @return
@@ -44,7 +44,7 @@ public class UsuarioViewHelper implements IViewHelper {
 	}
 	
 	/** 
-	 * TODO Descrição do Método
+	 * Descrição do Método
 	 * @param request
 	 * @param response
 	 * @return
