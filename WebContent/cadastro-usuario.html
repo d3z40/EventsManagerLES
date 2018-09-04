@@ -1,39 +1,68 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Cadastro de Usuários</title>
-	</head>
-	<body>
-		<form action="SalvarUsuario" method="post">
-			<!--
-			<label for="txtId">Id:</label>
-			<input type="text" id="txtId" name="txtId"/>
-			<br />
-			-->
+<link href="css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="js/bootstrap.min.js"></script>
+<script src="jquery/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-			<label for="txtNome">Nome:</label>
-			<input type="text" id="txtNome" name="txtNome"/>
-			<br />
-
-			<label for="txtNome">Apelido:</label>
-			<input type="text" id="txtApelido" name="txtApelido"/>
-			<br />
-
-			<label for="txtNome">E-mail:</label>
-			<input type="text" id="txtEmail" name="txtEmail"/>
-			<br />
-
-			<label for="txtSenha">Senha:</label>
-			<input type="password" id="txtSenha" name="txtSenha"/>
-			<br />
-
-			<label for="txtCpf">CPF:</label>
-			<input type="text" id="txtCPF" name="txtCPF"/>
-			<br />
-
-			<input type="submit" id="operacao" name="operacao" value="SALVAR"/>
-			<input type="submit" id="operacao" name="operacao" value="EXCLUIR"/>
-		</form>
-	</body>
-</html>
+<form class="form-horizontal" action='SalvarUsuario' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Registro</legend>
+    </div>
+    <div class="control-group">
+      <!-- Nome -->
+      <label class="control-label"  for="nome">Nome:</label>
+      <div class="controls">
+        <input type="text" id="txtNome" name="txtNome" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+	
+	<div class="control-group">
+      <!-- Apelido -->
+      <label class="control-label"  for="apelido">Apelido:</label>
+      <div class="controls">
+        <input type="text" id="txtApelido" name="txtApelido" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="txtEmail" name="txtEmail" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+	
+    <div class="control-group">
+      <!-- Senha-->
+      <label class="control-label" for="senha">Senha</label>
+      <div class="controls">
+        <input type="password" id="txtSenha" name="txtSenha" placeholder="" class="input-xlarge">
+        <p class="help-block">A senha deve ser no mínimo de 4 caracteres</p>
+      </div>
+    </div>
+	
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label"  for="senha_confirma">Senha (Confirma)</label>
+      <div class="controls">
+        <input type="password" id="txtSenhaConfirma" name="txtSenhaConfirma" placeholder="" class="input-xlarge">
+        <p class="help-block">Por favor, confirme sua senha</p>
+      </div>
+    </div>
+ 
+	<div class="control-group">
+      <!-- CPF -->
+      <label class="control-label" for="cpf">CPF</label>
+      <div class="controls">
+        <input type="text" id="txtCPF" name="txtCPF" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+	
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button type="submit" id="operacao" name="operacao" value="SALVAR" class="btn btn-success">Registrar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
