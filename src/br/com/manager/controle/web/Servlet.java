@@ -13,9 +13,11 @@ import br.com.manager.controle.web.command.ICommand;
 import br.com.manager.controle.web.command.impl.AlterarCommand;
 import br.com.manager.controle.web.command.impl.ConsultarCommand;
 import br.com.manager.controle.web.command.impl.ExcluirCommand;
+import br.com.manager.controle.web.command.impl.LogarCommand;
 import br.com.manager.controle.web.command.impl.SalvarCommand;
 import br.com.manager.controle.web.command.impl.VisualizarCommand;
 import br.com.manager.controle.web.vh.IViewHelper;
+import br.com.manager.controle.web.vh.impl.LoginViewHelper;
 import br.com.manager.controle.web.vh.impl.UsuarioViewHelper;
 import br.com.manager.core.aplicacao.Resultado;
 import br.com.manager.dominio.EntidadeDominio;
@@ -44,7 +46,7 @@ public class Servlet extends HttpServlet {
 		commands.put("CONSULTAR", new ConsultarCommand());
 		commands.put("VISUALIZAR", new VisualizarCommand());
 		commands.put("ALTERAR", new AlterarCommand());
-		//commands.put("LOGAR", new LogarCommand());
+		commands.put("LOGAR", new LogarCommand());
 		
 		/**
 		 * Utilizando o ViewHelper para tratar especificações de qualquer tela e
@@ -58,6 +60,7 @@ public class Servlet extends HttpServlet {
 		 * no web.xml e sendo utilizada no action do html
 		 */
 		vhs.put("/EventsManagerLES/SalvarUsuario", new UsuarioViewHelper());
+		vhs.put("/EventsManagerLES/Login", new LoginViewHelper());
 	}
 
 	/*

@@ -13,6 +13,7 @@ import br.com.manager.core.aplicacao.Resultado;
 import br.com.manager.core.impl.dao.UsuarioDAO;
 import br.com.manager.core.impl.negocio.ComplementarDtCadastro;
 import br.com.manager.core.impl.negocio.ValidadorCpf;
+import br.com.manager.core.impl.negocio.ValidadorDadosObrigatoriosLogin;
 import br.com.manager.core.impl.negocio.ValidadorDadosObrigatoriosUsuario;
 import br.com.manager.dominio.EntidadeDominio;
 import br.com.manager.dominio.Usuario;
@@ -70,12 +71,35 @@ public class Fachada implements IFachada {
 		 * criada na linha 70)
 		 */
 		rnsUsuario.put("SALVAR", rnsSalvarUsuario);
+		
+		/* Criando instâncias de regras de negócio a serem utilizados */
+		ValidadorDadosObrigatoriosLogin vrDadosObrigatoriosLogin = new ValidadorDadosObrigatoriosLogin();
+		
+		/*
+		 * Criando uma lista para conter as regras de negócio de fornencedor quando a
+		 * operação for salvar
+		 */
+		List<IStrategy> rnsLogin = new ArrayList<IStrategy>();
+		/* Adicionando as regras a serem utilizadas na operação salvar do fornecedor */
+		rnsLogin.add(vrDadosObrigatoriosLogin);
+		
+		/*
+		 * Cria o mapa que poderá conter todas as listas de regras de negócio específica
+		 * por operação do fornecedor
+		 */
+		Map<String, List<IStrategy>> rnsMapLogin = new HashMap<String, List<IStrategy>>();
+		/*
+		 * Adiciona a listra de regras na operação salvar no mapa do fornecedor (lista
+		 * criada na linha 70)
+		 */
+		rnsMapLogin.put("LOGAR", rnsLogin);
 
 		/*
 		 * Adiciona o mapa(criado na linha 79) com as regras indexadas pelas operações
 		 * no mapa geral indexado pelo nome da entidade
 		 */
 		rns.put(Usuario.class.getName(), rnsUsuario);
+		rns.put(Usuario.class.getName(), rnsMapLogin);
 	}
 
 	@Override
@@ -155,8 +179,8 @@ public class Fachada implements IFachada {
 		resultado = new Resultado();
 		String nmClasse = entidade.getClass().getName();
 
-		String msg = executarRegras(entidade, "EXCLUIR");
-
+		String msg = executarRegras(entidade, "CONSULTAR");
+		
 		if (msg == null) {
 			IDAO dao = daos.get(nmClasse);
 			try {
@@ -203,5 +227,26 @@ public class Fachada implements IFachada {
 			return msg.toString();
 		else
 			return null;
+	}
+
+	@Override
+	public Resultado logar(EntidadeDominio entidade) {
+		resultado = new Resultado();
+		String nmClasse = entidade.getClass().getName();
+		
+		String msg = executarRegras(entidade, "LOGAR");
+		
+		if (msg == null) {
+			IDAO dao = daos.get(nmClasse);
+			try {
+				resultado.setEntidades(dao.logar(entidade));
+			} catch (SQLException e) {
+				e.printStackTrace();
+				resultado.setMsg("Não foi possível realizar o login!");
+			}
+		} else {
+			resultado.setMsg(msg);
+		}
+		return resultado;
 	}
 }

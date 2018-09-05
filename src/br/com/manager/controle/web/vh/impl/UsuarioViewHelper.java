@@ -52,5 +52,6 @@ public class UsuarioViewHelper implements IViewHelper {
 	 */
 	@Override
 	public void setView(Resultado resultado, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 	}
 }
