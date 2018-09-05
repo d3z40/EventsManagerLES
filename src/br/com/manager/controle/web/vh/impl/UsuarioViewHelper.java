@@ -1,6 +1,7 @@
 package br.com.manager.controle.web.vh.impl;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,7 @@ public class UsuarioViewHelper implements IViewHelper {
 		u.setEmail(email);
 		u.setSenha(senha);
 		u.setCpf(cpf);
+		u.setDtCadastro(new Date());
 		
 		if (id != null && !id.trim().equals("")) {
 			u.setId(Integer.parseInt(id));
@@ -52,6 +54,15 @@ public class UsuarioViewHelper implements IViewHelper {
 	 */
 	@Override
 	public void setView(Resultado resultado, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
+		if (resultado.getMsg() != null) {
+			request.setAttribute("msg", resultado.getMsg());
+			
+			request.getRequestDispatcher("msg-erro.jsp").forward(request, response);
+		} else  {
+			Usuario usuario = (Usuario) resultado.getEntidades().get(0);
+			
+			request.setAttribute("nome", usuario.getNome());
+			request.getRequestDispatcher("usuario-cadastrado.jsp").forward(request, response);
+		}
 	}
 }
