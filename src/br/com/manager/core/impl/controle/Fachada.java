@@ -101,14 +101,14 @@ public class Fachada implements IFachada {
 		rns.put(Usuario.class.getName(), rnsUsuario);
 		rns.put(Usuario.class.getName(), rnsMapLogin);
 	}
-
+	
 	@Override
 	public Resultado salvar(EntidadeDominio entidade) {
 		resultado = new Resultado();
 		String nmClasse = entidade.getClass().getName();
-
+		
 		String msg = executarRegras(entidade, "SALVAR");
-
+		
 		if (msg == null) {
 			IDAO dao = daos.get(nmClasse);
 			try {
@@ -118,14 +118,14 @@ public class Fachada implements IFachada {
 				resultado.setEntidades(entidades);
 			} catch (SQLException e) {
 				e.printStackTrace();
-				resultado.setMsg("NÃ£o foi possÃ­vel realizar o registro!");
+				resultado.setMsg("Não foi possível realizar o registro!");
 			}
 		} else {
 			resultado.setMsg(msg);
 		}
 		return resultado;
 	}
-
+	
 	@Override
 	public Resultado alterar(EntidadeDominio entidade) {
 		resultado = new Resultado();
