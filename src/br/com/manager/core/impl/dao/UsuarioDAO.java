@@ -1,8 +1,10 @@
 package br.com.manager.core.impl.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.manager.dominio.EntidadeDominio;
@@ -62,5 +64,49 @@ public class UsuarioDAO extends AbstractJdbcDAO {
 	@Override
 	public List<EntidadeDominio> consultar(EntidadeDominio entidade) throws SQLException {
 		return null;
+	}
+
+	@Override
+	public List<EntidadeDominio> logar(EntidadeDominio entidade) throws SQLException {
+		openConnection();
+		PreparedStatement pst = null;
+		Usuario usuarioBD;
+		List<EntidadeDominio> usuarios = new ArrayList<EntidadeDominio>();
+		
+		Usuario usuario = (Usuario) entidade;
+		
+		try {			
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT * FROM tb_usuario WHERE BINARY email = ? AND BINARY senha = ?");
+			
+			pst = connection.prepareStatement(sql.toString());
+			pst.setString(1, usuario.getEmail());
+			pst.setString(2, usuario.getSenha());
+			
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				usuarioBD = new Usuario();
+				usuarioBD.setNome(rs.getString("nome"));
+				usuarioBD.setApelido(rs.getString("apelido"));
+				usuarioBD.setEmail(rs.getString("email"));
+				usuarioBD.setSenha(rs.getString("senha"));
+				usuarioBD.setCpf(rs.getString("cpf"));
+				usuarioBD.setDtCadastro(rs.getDate("dtCadastro"));
+				
+				usuarios.add(usuarioBD);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pst.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return usuarios;
 	}
 }

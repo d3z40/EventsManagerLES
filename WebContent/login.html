@@ -25,15 +25,15 @@
       </div>
 	  ---------->
 
-      <form action="SalvarUsuario" role="form">
+      <form action="Login" method="post">
         <div class="form-group">
           <label for="inputUsernameEmail">Usuario ou E-mail</label>
-          <input type="text" class="form-control" id="inputUsernameEmail">
+          <input type="text" class="form-control" name="txtEmail" id="txtEmail">
         </div>
         <div class="form-group">
           <a class="pull-right" href="#">Esqueceu a senha?</a>
           <label for="inputPassword">Senha</label>
-          <input type="password" class="form-control" id="inputPassword">
+          <input type="password" class="form-control" name="txtSenha" id="txtSenha">
         </div>
         <div class="checkbox pull-right">
           <label>
@@ -41,9 +41,7 @@
             Lembre-me
 		  </label>
         </div>
-        <button type="submit" class="btn btn btn-primary">
-          Acessar
-        </button>
+        <button type="submit" id="operacao" name="operacao" value="LOGAR" class="btn btn btn-primary">Acessar</button>
       </form>
     </div>
   </div>
