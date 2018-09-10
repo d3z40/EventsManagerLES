@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<script src="jquery/2.1.1-jquery.min.js"></script>
+		<script src="js/bootstrap.3.3.7.min.js"></script>
+		<link href="css/bootstrap.3.3.7.min.css" rel="stylesheet" />
+		<title>Menu Administrador</title>
+  </head>
+  <body>
+		<br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-md-3">
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#cadastros"><span class="glyphicon glyphicon-plus"></span>
+									 Cadastros</a>
+								</h4>
+							</div>
+							<div id="cadastros" class="panel-collapse collapse"> <!--panel-collapse collapse in-->
+								<div class="panel-body">
+									<table class="table">
+										<tr>
+											<td>
+												<!--<span class="glyphicon glyphicon-book text-primary"></span>--><a onclick="carregar('cadastro-usuario.html');" href="#" id="cadastro-usuario"> Eventos</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<!--<span class="glyphicon glyphicon-user text-success"></span>--><a onclick="carregar('cadastro-endereco.html');" href="#" id="cadastro-endereco"> Endereços</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<!--<span class="glyphicon glyphicon-usd text-info"></span>--><a href="add-amigo.html"> Add Amigos</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#consultas"><span class="glyphicon glyphicon-list-alt">
+									</span> Consultas</a>
+								</h4>
+							</div>
+							<div id="consultas" class="panel-collapse collapse">
+								<div class="panel-body">
+									<table class="table">
+										<tr>
+											<td>
+												<a href="consulta-eventos.jsp"> Eventos</a><!--<span class="label label-success">$ 320</span>-->
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="consulta-enderecos.jsp"> Endereços</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="consulta-amigos.jsp"> Amigos</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#relatorios"><span class="glyphicon glyphicon-file">
+									</span>Relatórios</a>
+								</h4>
+							</div>
+							<div id="relatorios" class="panel-collapse collapse">
+								<div class="panel-body">
+									<table class="table">
+										<tr>
+											<td>
+												<span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#account"><span class="glyphicon glyphicon-user">
+									</span>Conta</a>
+								</h4>
+							</div>
+							<div id="account" class="panel-collapse collapse">
+								<div class="panel-body">
+									<table class="table">
+										<tr>
+											<td>
+												<a> Alterar Senha</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a> Validar Email</a> <!--<span class="label label-info">5</span>-->
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a> Configuracoes</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="glyphicon glyphicon-trash text-danger"></span>
+												<a class="text-danger"> Excluir Conta</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-9 col-md-9">
+					<div id="well" class="well" style="overflow:hidden" >
+						<h1>LES Sistema de Eventos</h1>
+						<div id="carregar"> Media Eventos</div>
+					   <script>
+						  function carregar(pagina){
+					        $("#carregar").load(pagina);
+					    }
+					   </script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

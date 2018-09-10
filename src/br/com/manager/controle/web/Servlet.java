@@ -17,6 +17,7 @@ import br.com.manager.controle.web.command.impl.LogarCommand;
 import br.com.manager.controle.web.command.impl.SalvarCommand;
 import br.com.manager.controle.web.command.impl.VisualizarCommand;
 import br.com.manager.controle.web.vh.IViewHelper;
+import br.com.manager.controle.web.vh.impl.EnderecoViewHelper;
 import br.com.manager.controle.web.vh.impl.LoginViewHelper;
 import br.com.manager.controle.web.vh.impl.UsuarioViewHelper;
 import br.com.manager.core.aplicacao.Resultado;
@@ -61,6 +62,7 @@ public class Servlet extends HttpServlet {
 		 */
 		vhs.put("/EventsManagerLES/SalvarUsuario", new UsuarioViewHelper());
 		vhs.put("/EventsManagerLES/Login", new LoginViewHelper());
+		vhs.put("/EventsManagerLES/SalvarEndereco", new EnderecoViewHelper());
 	}
 
 	/*

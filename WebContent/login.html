@@ -1,48 +1,39 @@
-<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="css/about.meLoginStyle.css" rel="stylesheet" id="meLoginStyle-css">
-<script src="js/bootstrap.min.js"></script>
-<script src="jquery/jquery-1.11.1.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-  <div class="row">
-
-    <div class="main">
-
-      <h3>Acesse, ou <a href="cadastro-usuario.html">Cadastre-se</a></h3>
-	  <!------
-      <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6">
-          <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-          <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
-        </div>
-      </div>
-      <div class="login-or">
-        <hr class="hr-or">
-        <span class="span-or">or</span>
-      </div>
-	  ---------->
-
-      <form action="Login" method="post">
-        <div class="form-group">
-          <label for="inputUsernameEmail">Usuario ou E-mail</label>
-          <input type="text" class="form-control" name="txtEmail" id="txtEmail">
-        </div>
-        <div class="form-group">
-          <a class="pull-right" href="#">Esqueceu a senha?</a>
-          <label for="inputPassword">Senha</label>
-          <input type="password" class="form-control" name="txtSenha" id="txtSenha">
-        </div>
-        <div class="checkbox pull-right">
-          <label>
-            <input type="checkbox">
-            Lembre-me
-		  </label>
-        </div>
-        <button type="submit" id="operacao" name="operacao" value="LOGAR" class="btn btn btn-primary">Acessar</button>
-      </form>
-    </div>
-  </div>
-</div>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<link href="css/about.meLoginStyle.css" rel="stylesheet" id="meLoginStyle-css">
+		<script src="js/bootstrap.min.js"></script>
+		<script src="jquery/jquery-1.11.1.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+		<title>Login</title>
+	</head>
+	<body>	
+		<div class="container">
+		  <div class="row">
+		    <div class="main">
+		      <h3>Acesse, ou <a href="cadastro-usuario.html">Cadastre-se</a></h3>
+		      
+		      <form action="Login" method="post">
+		        <div class="form-group">
+		          <label for="inputUsernameEmail">Usuário ou E-mail</label>
+		          <input type="text" class="form-control" name="txtEmail" id="txtEmail">
+		        </div>
+		        <div class="form-group">
+		          <a class="pull-right" href="#">Esqueceu a senha?</a>
+		          <label for="inputPassword">Senha</label>
+		          <input type="password" class="form-control" name="txtSenha" id="txtSenha">
+		        </div>
+		        <div class="checkbox pull-right">
+		          <label>
+		            <input type="checkbox">
+		            Lembre-me
+				  </label>
+		        </div>
+		        <button type="submit" id="operacao" name="operacao" value="LOGAR" class="btn btn btn-primary">Acessar</button>
+		      </form>
+		    </div>
+		  </div>
+		</div>
+	</body>
+</html>

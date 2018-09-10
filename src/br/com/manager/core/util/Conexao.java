@@ -10,6 +10,11 @@ public class Conexao {
 		String url = "jdbc:mysql://localhost/LES";
 		String user = "root";
 		String password = "RafaLena1903";
+//		String driver = "org.hsqldb.jdbc.JDBCDriver";
+//		String url = "jdbc:hsqldb:hsql://localhost:59999/LES";
+//		String user = "SA";
+//		String password = "";
+		
 		Class.forName(driver);
 		Connection conn = DriverManager.getConnection(url, user, password);
 		

@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="js/bootstrap.min.js"></script>
+		<script src="jquery/jquery-1.11.1.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+		<title>Cadastro de Endereço</title>
+	</head>
+	<body>
+		<div class="container">
+		    <div class="row">
+		        <form  class="form-horizontal" action='SalvarEndereco' method="POST">
+		            <div class="col-xs-6">
+		            	<div class="form-group">
+		            		<legend class="">Endereço</legend>
+					    </div>
+		                <div class="form-group">
+		                    <label for="cep">CEP</label>
+		                    <input type="text" class="form-control" id="txtCEP" name="txtCEP" placeholder="CEP">
+		                </div>
+		                <div class="form-group">
+		                    <label for="logradouro">Logradouro</label>
+		                    <input type="text" class="form-control" id="txtLogradouro" name="txtLogradouro" placeholder="Logradouro">
+		                </div>
+		                <div class="form-group">
+		                    <label for="numero">Nº</label>
+		                    <input type="text" class="form-control" id="txtNumero" name="txtNumero" placeholder="Nº">
+		                </div>
+		                <div class="form-group">
+		                    <label for="bairro">Bairro</label>
+		                    <input type="text" class="form-control" id="txtBairro" name="txtBairro" placeholder="Bairro">
+		                </div>
+		                <div class="form-group">
+		                    <label for="cidade">Cidade</label>
+		                    <input type="text" class="form-control" id="txtCidade" name="txtCidade" placeholder="Cidade">
+		                </div>
+		                <div class="form-group">
+		                    <label for="estado">Estado</label>
+		                    <input type="text" class="form-control" id="txtEstado" name="txtEstado" placeholder="Estado">
+		                </div>
+		                <div class="form-group">
+		                	<button type="submit" id="operacao" name="operacao" value="SALVAR" class="btn btn-success">Gravar</button>
+	        		     </div>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+	</body>
+</html>

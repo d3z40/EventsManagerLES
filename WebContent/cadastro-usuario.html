@@ -1,75 +1,50 @@
 <html>
 	<head>
-		<link href="css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<script src="js/bootstrap.min.js"></script>
 		<script src="jquery/jquery-1.11.1.min.js"></script>
 		<!------ Include the above in your HEAD tag ---------->
-		<title>Cadastro de Usuario</title>
+		<title>Cadastro de Usuário</title>
 	</head>
 	<body>
-		<form class="form-horizontal" action='SalvarUsuario' method="POST">
-		  <fieldset>
-		    <div id="legend">
-		      <legend class="">Registro</legend>
+		<div class="container">
+		    <div class="row">
+		        <form  class="form-horizontal" action='SalvarUsuario' method="POST">
+		            <div class="col-xs-6">
+		            	<div class="form-group">
+		            		<legend class="">Registro</legend>
+					    </div>
+		                <div class="form-group">
+		                    <label for="nome">Nome</label>
+		                    <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+		                </div>
+		                <div class="form-group">
+		                    <label for="apelido">Apelido</label>
+		                    <input type="text" class="form-control" id="txtApelido" name="txtApelido" placeholder="Apelido">
+		                </div>
+		                <div class="form-group">
+		                    <label for="email">E-mail</label>
+		                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="E-mail">
+		                </div>
+		                <div class="form-group">
+		                    <label for="cpf">CPF</label>
+		                    <input type="text" class="form-control" id="txtCPF" name="txtCPF" placeholder="CPF">
+		                </div>
+		                <div class="form-group">
+		                    <label for="senha">Senha</label>
+		                    <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha">
+		                </div>
+		                <div class="form-group">
+		                    <label for="senhaConfirma">Senha (Confirma)</label>
+		                    <input type="password" class="form-control" id="txtSenhaConfirma" name="txtSenhaConfirma" placeholder="Repita a senha">
+		                </div>
+		                <div class="form-group">
+		                	<button type="submit" id="operacao" name="operacao" value="SALVAR" class="btn btn-success">Registrar</button>
+	        		     </div>
+		            </div>
+		        </form>
 		    </div>
-
-		    <div class="control-group">
-		      <!-- Nome -->
-		      <label class="control-label"  for="nome">Nome:</label>
-		      <div class="controls">
-		        <input type="text" id="txtNome" name="txtNome" placeholder="Nome" class="form-control">
-		      </div>
-		    </div>
-
-			<div class="control-group">
-		      <!-- Apelido -->
-		      <label class="control-label"  for="apelido">Apelido:</label>
-		      <div class="controls">
-		        <input type="text" id="txtApelido" name="txtApelido" placeholder="Apelido" class="input-xlarge">
-		      </div>
-		    </div>
-
-		    <div class="control-group">
-		      <!-- E-mail -->
-		      <label class="control-label" for="email">E-mail</label>
-		      <div class="controls">
-		        <input type="text" id="txtEmail" name="txtEmail" placeholder="E-mail" class="input-xlarge">
-		      </div>
-		    </div>
-
-		    <div class="control-group">
-		      <!-- Senha-->
-		      <label class="control-label" for="senha">Senha</label>
-		      <div class="controls">
-		        <input type="password" id="txtSenha" name="txtSenha" placeholder="Senha" class="input-xlarge" required="required">
-		        <p class="help-block">A senha deve ser no mínimo de 4 caracteres</p>
-		      </div>
-		    </div>
-
-		    <div class="control-group">
-		      <!-- Password -->
-		      <label class="control-label"  for="senha_confirma">Senha (Confirma)</label>
-		      <div class="controls">
-		        <input type="password" id="txtSenhaConfirma" name="txtSenhaConfirma" placeholder="Repita a senha" class="input-xlarge" required="required">
-		        <p class="help-block">Por favor, confirme sua senha</p>
-		      </div>
-		    </div>
-
-			<div class="control-group">
-		      <!-- CPF -->
-		      <label class="control-label" for="cpf">CPF</label>
-		      <div class="controls">
-		        <input type="text" id="txtCPF" name="txtCPF" placeholder="" class="input-xlarge">
-		      </div>
-		    </div>
-
-		    <div class="control-group">
-		      <!-- Button -->
-		      <div class="controls">
-		        <button type="submit" id="operacao" name="operacao" value="SALVAR" class="btn btn-success">Registrar</button>
-		      </div>
-		    </div>
-		  </fieldset>
-		</form>
+		</div>
 	</body>
 </html>

@@ -1,6 +1,7 @@
 package br.com.manager.dominio;
 
 public class Endereco extends EntidadeDominio {
+	private int idUsuario;
 	private String logradouro;
 	private int numero;
 	private String bairro;
@@ -8,6 +9,20 @@ public class Endereco extends EntidadeDominio {
 	private String estado;
 	private String cep;
 	
+	/**
+	 * @return the idUsuario
+	 */
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	/**
+	 * @param idUsuario the idUsuario to set
+	 */
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
 	/**
 	 * @return the logradouro
 	 */

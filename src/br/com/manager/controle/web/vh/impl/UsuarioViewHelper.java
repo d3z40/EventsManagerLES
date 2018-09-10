@@ -59,10 +59,7 @@ public class UsuarioViewHelper implements IViewHelper {
 			
 			request.getRequestDispatcher("msg-erro.jsp").forward(request, response);
 		} else  {
-			Usuario usuario = (Usuario) resultado.getEntidades().get(0);
-			
-			request.setAttribute("nome", usuario.getNome());
-			request.getRequestDispatcher("usuario-cadastrado.jsp").forward(request, response);
+			request.getRequestDispatcher("login.html").forward(request, response);
 		}
 	}
 }

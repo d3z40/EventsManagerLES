@@ -10,11 +10,14 @@ import br.com.manager.core.IDAO;
 import br.com.manager.core.IFachada;
 import br.com.manager.core.IStrategy;
 import br.com.manager.core.aplicacao.Resultado;
+import br.com.manager.core.impl.dao.EnderecoDAO;
 import br.com.manager.core.impl.dao.UsuarioDAO;
 import br.com.manager.core.impl.negocio.ComplementarDtCadastro;
 import br.com.manager.core.impl.negocio.ValidadorCpf;
+import br.com.manager.core.impl.negocio.ValidadorDadosObrigatoriosEndereco;
 import br.com.manager.core.impl.negocio.ValidadorDadosObrigatoriosLogin;
 import br.com.manager.core.impl.negocio.ValidadorDadosObrigatoriosUsuario;
+import br.com.manager.dominio.Endereco;
 import br.com.manager.dominio.EntidadeDominio;
 import br.com.manager.dominio.Usuario;
 
@@ -42,9 +45,11 @@ public class Fachada implements IFachada {
 
 		/* Criando instâncias dos DAOs a serem utilizados */
 		UsuarioDAO usuDAO = new UsuarioDAO();
+		EnderecoDAO endDAO = new EnderecoDAO();
 		
 		/* Adicionando cada dao no MAP indexando pelo nome da classe */
 		daos.put(Usuario.class.getName(), usuDAO);
+		daos.put(Endereco.class.getName(), endDAO);
 		
 		/* Criando instâncias de regras de negócio a serem utilizados */
 		ValidadorDadosObrigatoriosUsuario vrDadosObrigatoriosUsuario = new ValidadorDadosObrigatoriosUsuario();
@@ -94,12 +99,36 @@ public class Fachada implements IFachada {
 		 */
 		rnsMapLogin.put("LOGAR", rnsLogin);
 
+		/* Criando instâncias de regras de negócio a serem utilizados */
+		ValidadorDadosObrigatoriosEndereco vrDadosObrigatoriosEndereco = new ValidadorDadosObrigatoriosEndereco();
+		
+		/*
+		 * Criando uma lista para conter as regras de negócio de fornencedor quando a
+		 * operação for salvar
+		 */
+		List<IStrategy> rnsSalvarEndereco = new ArrayList<IStrategy>();
+		/* Adicionando as regras a serem utilizadas na operação salvar do fornecedor */
+		rnsSalvarEndereco.add(vrDadosObrigatoriosEndereco);
+		rnsSalvarEndereco.add(cDtCadastro);
+		
+		/*
+		 * Cria o mapa que poderá conter todas as listas de regras de negócio específica
+		 * por operação do fornecedor
+		 */
+		Map<String, List<IStrategy>> rnsEndereco = new HashMap<String, List<IStrategy>>();
+		/*
+		 * Adiciona a listra de regras na operação salvar no mapa do fornecedor (lista
+		 * criada na linha 70)
+		 */
+		rnsEndereco.put("SALVAR", rnsSalvarEndereco);
+		
 		/*
 		 * Adiciona o mapa(criado na linha 79) com as regras indexadas pelas operações
 		 * no mapa geral indexado pelo nome da entidade
 		 */
 		rns.put(Usuario.class.getName(), rnsUsuario);
-		rns.put(Usuario.class.getName(), rnsMapLogin);
+//		rns.put(Usuario.class.getName(), rnsMapLogin);
+		rns.put(Endereco.class.getName(), rnsEndereco);
 	}
 	
 	@Override
@@ -118,7 +147,7 @@ public class Fachada implements IFachada {
 				resultado.setEntidades(entidades);
 			} catch (SQLException e) {
 				e.printStackTrace();
-				resultado.setMsg("N�o foi poss�vel realizar o registro!");
+				resultado.setMsg("N�o foi poss�vel realizar o registro!");
 			}
 		} else {
 			resultado.setMsg(msg);
