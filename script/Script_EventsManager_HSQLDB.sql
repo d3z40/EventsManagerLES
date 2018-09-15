@@ -1,4 +1,4 @@
-CREATE TABLE tb_usuario (
+CREATE CACHED TABLE tb_usuario (
   id INT NOT NULL IDENTITY,
   nome VARCHAR(255) NOT NULL,
   apelido VARCHAR(255) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE tb_usuario (
   CONSTRAINT pk_usuario PRIMARY KEY (id)
 );
 
-CREATE TABLE tb_endereco (
+CREATE CACHED TABLE tb_endereco (
   id INT NOT NULL IDENTITY,
   idUsuario INT NOT NULL,  
   logradouro VARCHAR(255) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE tb_endereco (
   CONSTRAINT fk_usuario FOREIGN KEY (idUsuario) REFERENCES tb_usuario (id)
 );
 
-CREATE TABLE tb_amigo (
+CREATE CACHED TABLE tb_amigo (
 	id INT NOT NULL IDENTITY,
     idUsuario INT NOT NULL,
     idAmigo INT NOT NULL,
