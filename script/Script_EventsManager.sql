@@ -35,3 +35,22 @@ CREATE TABLE tb_amigo (
     CONSTRAINT fk_usuario_usuario FOREIGN KEY (idUsuario) REFERENCES tb_usuario (id),
 	CONSTRAINT fk_amigo_usuario FOREIGN KEY (idAmigo) REFERENCES tb_usuario (id)
 );
+
+CREATE TABLE tb_evento (
+  id INT NOT NULL AUTO_INCREMENT,
+  IdEndereco INT NOT NULL,
+  descricao VARCHAR(255) NOT NULL,
+  dtEvento DATE NOT NULL,
+  dtCadastro DATE NOT NULL,
+  CONSTRAINT pk_evento PRIMARY KEY (id)
+  CONSTRAINT fk_evento_endereco FOREIGN KEY (IdEndereco) REFERENCES tb_endereco (id)
+);
+
+CREATE TABLE tb_item (
+  id INT NOT NULL AUTO_INCREMENT,
+  idEvento INT NOT NULL,
+  descricao VARCHAR(255) NOT NULL,
+  dtCadastro DATE NOT NULL,
+  CONSTRAINT pk_usuario PRIMARY KEY (id)
+  CONSTRAINT fk_item_evento FOREIGN KEY (IdEvento) REFERENCES tb_evento (id)
+);

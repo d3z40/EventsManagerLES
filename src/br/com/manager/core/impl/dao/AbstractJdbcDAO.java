@@ -34,7 +34,7 @@ public abstract class AbstractJdbcDAO implements IDAO {
 		sb.append(table);
 		sb.append(" WHERE ");
 		sb.append(idTable);
-		sb.append("=");
+		sb.append(" = ");
 		sb.append("?");	
 		try {
 			connection.setAutoCommit(false);

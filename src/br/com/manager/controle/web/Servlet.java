@@ -89,8 +89,7 @@ public class Servlet extends HttpServlet {
 		doProcessRequest(req, resp);
 	}
 
-	protected void doProcessRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doProcessRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Obtêm a uri que invocou esta servlet (O que foi definido no methdo do form
 		// html)
 		String uri = request.getRequestURI();

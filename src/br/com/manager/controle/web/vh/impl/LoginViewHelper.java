@@ -40,7 +40,7 @@ public class LoginViewHelper implements IViewHelper {
 			Usuario usuario = (Usuario) resultado.getEntidades().get(0);
 			
 			request.setAttribute("nome", usuario.getNome());
-			request.getRequestDispatcher("loagado.jsp").forward(request, response);
+			request.getRequestDispatcher("Menu.html").forward(request, response);
 		}
 	}
 }

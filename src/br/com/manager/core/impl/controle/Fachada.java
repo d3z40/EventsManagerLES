@@ -147,7 +147,7 @@ public class Fachada implements IFachada {
 				resultado.setEntidades(entidades);
 			} catch (SQLException e) {
 				e.printStackTrace();
-				resultado.setMsg("N�o foi poss�vel realizar o registro!");
+				resultado.setMsg("Não foi possível realizar o registro!");
 			}
 		} else {
 			resultado.setMsg(msg);
@@ -231,13 +231,13 @@ public class Fachada implements IFachada {
 		resultado.getEntidades().add(entidade);
 		return resultado;
 	}
-
+	
 	private String executarRegras(EntidadeDominio entidade, String operacao) {
 		String nmClasse = entidade.getClass().getName();
 		StringBuilder msg = new StringBuilder();
-
+		
 		Map<String, List<IStrategy>> regrasOperacao = rns.get(nmClasse);
-
+		
 		if (regrasOperacao != null) {
 			List<IStrategy> regras = regrasOperacao.get(operacao);
 			

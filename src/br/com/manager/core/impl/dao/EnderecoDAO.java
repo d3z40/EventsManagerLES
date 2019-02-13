@@ -24,9 +24,11 @@ public class EnderecoDAO extends AbstractJdbcDAO {
 			connection.setAutoCommit(false);
 			
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO tb_endereco (idUsuario, logradouro, numero, bairro, cidade, estado, cep, dtCadastro) ");
+			sql.append("INSERT INTO ");
+			sql.append(idTable);
+			sql.append(" (idUsuario, logradouro, numero, bairro, cidade, estado, cep, dtCadastro) ");
 			sql.append("VALUES (?,?,?,?,?,?,?,?)");
-
+			
 			pst = connection.prepareStatement(sql.toString());
 			pst.setInt(1, endereco.getIdUsuario());
 			pst.setString(2, endereco.getLogradouro());

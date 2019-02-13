@@ -17,6 +17,7 @@ public class EnderecoViewHelper implements IViewHelper {
 	@Override
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
 		int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+		String descricao = request.getParameter("txtDescricao");
 		String cep = request.getParameter("txtCEP");
 		String logradouro = request.getParameter("txtLogradouro");
 		int numero = Integer.parseInt(request.getParameter("txtNumero"));
@@ -26,6 +27,7 @@ public class EnderecoViewHelper implements IViewHelper {
 		String id = request.getParameter("txtId");
 		
 		Endereco e = new Endereco();
+		e.setDescricao(descricao);
 		e.setIdUsuario(idUsuario);
 		e.setCep(cep);
 		e.setLogradouro(logradouro);
