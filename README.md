@@ -1,2 +1,3 @@
-# EventsManagerLES
-Repository to LES class in FATEC of Mogi das Cruzes. Project about events management.
+## Welcome to EventsManager Pages
+
+With this project you can manage your events, through some simples settings.
